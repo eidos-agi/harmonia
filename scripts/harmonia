@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+import { invoke } from "../mcp/lib.mjs"
+
+const result = invoke(process.argv.slice(2))
+process.stdout.write(result.text)
+process.exit(result.code)

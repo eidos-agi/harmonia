@@ -20,6 +20,7 @@ namespace ErrorCode {
     constexpr int RESOURCE_BUSY_USER_TOUCH = 74; // Parameter locked due to active GUI drag
     constexpr int PLUGIN_FAULT            = 75; // VST3/AU failed or parameter out of bounds
     constexpr int ASSET_I_O_ERROR         = 76; // Audio clip path unreadable or invalid format
+    constexpr int NOT_IN_ENGINE           = 77; // Command is in the Harmonia API and the engine does not do it yet
 }
 
 // Machine-Parsable Output Format Taxonomy
@@ -40,6 +41,7 @@ inline std::string errorCodeToSymbol(int code) {
         case ErrorCode::RESOURCE_BUSY_USER_TOUCH: return "RESOURCE_BUSY";
         case ErrorCode::PLUGIN_FAULT: return "PLUGIN_FAULT";
         case ErrorCode::ASSET_I_O_ERROR: return "ASSET_I_O_ERROR";
+        case ErrorCode::NOT_IN_ENGINE: return "NOT_IN_ENGINE";
         default: return "ERROR";
     }
 }
