@@ -54,7 +54,7 @@ View state (which panel is open, zoom, the draw tool) is not a set change. Leave
 
 ## Truth on 2026-10-08
 
-Local tree: `~/repos-eidos-agi/harmonia`. Remote: `eidos-agi/harmonia`, private. About 115,000 lines of C++ in 610 files. The agent layer is about 3,700 of those lines.
+Local tree: `~/repos-eidos-agi/harmonia`. Remote: `eidos-agi/harmonia`, public. About 115,000 lines of C++ in 610 files. The agent layer is about 3,700 of those lines.
 
 `api/commands.json` has 54 commands with `engine: "ready"` and 14 with `engine: "missing"`. The ready commands call `daw-cli`. None of them have been run on a Harmonia build. There is no Harmonia build on this Mac. `./scripts/build.sh release` was not finished. The upstream dependency script would have upgraded Git, Rust, and pyenv and installed all of Qt.
 
