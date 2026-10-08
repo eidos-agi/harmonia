@@ -89,3 +89,6 @@ CMakeUserPresets.json
 *.dawproject
 *.autosave
 cache/
+
+# Licensed recordings stay on the machine that has them.
+projects/*/audio/

@@ -25,6 +25,8 @@ node mcp/server.mjs
 
 `scripts/harmonia commands` prints the whole table. `HARMONIA_DAW_CLI` points at a `daw-cli` binary when it is not `build/release/bin/daw-cli`.
 
+The working set is [projects/leave-the-light/leave-the-light.json](projects/leave-the-light/leave-the-light.json). The recordings are not in this repository. See [projects/leave-the-light/README.md](projects/leave-the-light/README.md).
+
 The Stratawright 1.0.0 Mac package does not load audio. Its clip list is a fixed clip named Drums_Wav. Use a build from this repo.
 
 ## Rules

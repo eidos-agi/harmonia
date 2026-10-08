@@ -22,6 +22,7 @@
 #include "Core audio engine/plugin/iplugin_manager.h"
 #include "metadata_commands.h"
 #include "musical_composition/region_manager/source_manager_commands.h"
+#include <filesystem>
 #include <fstream>
 
 namespace composition {
@@ -297,6 +298,34 @@ public:
         std::string jsonStr((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
         ProjectState state;
         if (!ProjectJsonSerializer::deserialize(jsonStr, state)) return false;
+
+        // projectName is the set's display name. restore() treats it as a file
+        // path, so audio stored beside this JSON would not be found.
+        try {
+            const std::filesystem::path projectDir =
+                std::filesystem::path(absolutePath).parent_path().lexically_normal();
+            for (auto& src : state.sources) {
+                if (src.relativeFilePath.empty()) continue;
+                const std::filesystem::path relative(src.relativeFilePath);
+                if (relative.is_absolute()) continue;
+                const std::filesystem::path beside = (projectDir / relative).lexically_normal();
+                const std::filesystem::path fromProject = std::filesystem::relative(beside, projectDir);
+                bool escapesProject = false;
+                for (const auto& part : fromProject) {
+                    if (part == "..") {
+                        escapesProject = true;
+                        break;
+                    }
+                }
+                if (escapesProject) continue;
+                if (std::filesystem::exists(beside)) {
+                    src.filePath = beside.string();
+                }
+            }
+        } catch (...) {
+            // Keep the paths deserialize stored.
+        }
+
         return ProjectStateBridge::restore(state, *this, trackManager_.get(), stringRegistry, pluginManager_, outMissingPlugins);
     }
 };

@@ -60,11 +60,16 @@ Local tree: `~/repos-eidos-agi/harmonia`. Remote: `eidos-agi/harmonia`, public. 
 
 The 14 refused commands are `scene list`, `scene create`, `scene fire`, `scene stop`, `clip-slot list`, `clip-slot add-audio`, `clip-slot launch`, `clip-slot stop`, `song loop`, `song record`, `return create`, `master set-gain`, `locator add`, `locator jump`. Each exits 77.
 
-Dogfood audio, already decoded, do not stretch it:
+Dogfood set: `projects/leave-the-light/leave-the-light.json`.
 
-`~/Music/Stratawright/leave-the-light/leave-the-light.wav`
+Format `AGDAW_JSON_V6`. The set name is Leave the Light. Project rate is 44.1 kHz. Tempo 120 and 4/4 are the engine defaults, not a measured tempo of the song. There is no key. Both clips use warp bypass and playback ratio 1. `loadFromJsonFile` resolves `relativeFilePath` beside the JSON. The set name is not a path.
 
-44.1 kHz, stereo, 16-bit, 145.401 seconds. It is the Leave the Light cut from Summer 1984 part-04. Source m4a is `eidos-arcade/soundtrack/zenity-summer-1984/audio/04-part-04.m4a`. The codec reader in this tree reads wav and flac through libsndfile.
+Audio is local and gitignored under `projects/*/audio/`. It is not in the public repo.
+
+- `projects/leave-the-light/audio/leave-the-light.wav` — 44.1 kHz, stereo, 16-bit, 6,412,184 frames, 145.401 seconds. Leave the Light, from Summer 1984 part-04.
+- `projects/leave-the-light/audio/leave-the-light-super-extended.wav` — 48 kHz, stereo, 16-bit, 15,858,414 frames, 330.384 seconds. Leave the Light (Super Extended). On the 44.1 kHz timeline its length is 14,569,918 samples, which keeps that duration. It is not time-stretched.
+
+The codec reader in this tree reads wav and flac through libsndfile.
 
 ## Queue
 
@@ -74,7 +79,7 @@ Take these in order. Each proof stays open until the check has been run and the 
 
 Proof, open.
 
-Build `./scripts/build.sh release` without upgrading unrelated Homebrew packages. Start that build. `scripts/harmonia clip add-audio` places `leave-the-light.wav` on track 1 at bar 1. `scripts/harmonia clip list --track 1` shows a duration of 145.401 seconds, within 50 ms. Export the master and confirm the body of the export matches the wav. The Stratawright 1.0.0 app does not count.
+Build `./scripts/build.sh release` without upgrading unrelated Homebrew packages. Start that build. Open `projects/leave-the-light/leave-the-light.json`, or `scripts/harmonia clip add-audio` places `projects/leave-the-light/audio/leave-the-light.wav` on track 1 at bar 1. `scripts/harmonia clip list --track 1` shows a duration of 145.401 seconds, within 50 ms. Export the master and confirm the body of the export matches the wav. The Stratawright 1.0.0 app does not count.
 
 Depends on nothing.
 
@@ -92,7 +97,7 @@ Proof, open.
 
 These exist as shortcuts or controllers and have no command. Each gets a command, a CLI line, an MCP tool, and a test:
 
-- New set, open, save, save as. Round-trip the dogfood set: save, quit, open, clip list still shows 145.401 seconds.
+- New set, open, save, save as. Round-trip `projects/leave-the-light/leave-the-light.json`: open, save, quit, open. Clip list still shows 145.401 seconds on Leave the Light and 330.384 seconds on Leave the Light (Super Extended). Warp stays bypass.
 - Undo and redo one track create.
 - Metronome on and off. Count-in on and off.
 - Arm a track. Clear every solo.
@@ -280,13 +285,14 @@ Status words: `wired` means the command exists and is unproven. `refused` means 
 
 The first set that must work, end to end, after queue 4:
 
-1. New set, 44.1 kHz.
-2. One audio track named Leave the Light.
-3. Scene 1, slot 1, the dogfood wav, warp off.
-4. Fire scene 1.
-5. Export two seconds.
-6. The export matches the start of the wav.
-7. Save, quit, open, fire again.
+1. Open `projects/leave-the-light/leave-the-light.json`. 44.1 kHz. Tempo stays the engine default.
+2. Track 1 is Leave the Light. The clip is the 145.401 second wav, warp off, playback ratio 1.
+3. Track 2 is Leave the Light (Super Extended). Same warp settings. Its duration stays 330.384 seconds.
+4. Scene 1, slot 1, the Leave the Light wav.
+5. Fire scene 1.
+6. Export two seconds.
+7. The export matches the start of that wav.
+8. Save, quit, open, fire again.
 
 That session is the acceptance test for the product. Later queues add to it. They do not replace it.
 

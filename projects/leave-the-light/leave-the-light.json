@@ -1,0 +1,179 @@
+{
+    "format_version": "AGDAW_JSON_V6",
+    "metadata": {
+        "projectName": "Leave the Light",
+        "author": "",
+        "sampleRate": 44100,
+        "initialTempoBPM": 120.0,
+        "timeSignatureNumerator": 4,
+        "timeSignatureDenominator": 4,
+        "targetBitDepth": 16,
+        "sessionDurationSeconds": 330.383625
+    },
+    "sources": [
+        {
+            "id": 1,
+            "generation": 1,
+            "nameId": 0,
+            "totalLengthSamples": 6412184,
+            "channelCount": 2,
+            "sampleRate": 44100,
+            "mediaId": 0,
+            "filePath": "",
+            "relativeFilePath": "audio/leave-the-light.wav"
+        },
+        {
+            "id": 2,
+            "generation": 1,
+            "nameId": 0,
+            "totalLengthSamples": 15858414,
+            "channelCount": 2,
+            "sampleRate": 48000,
+            "mediaId": 0,
+            "filePath": "",
+            "relativeFilePath": "audio/leave-the-light-super-extended.wav"
+        }
+    ],
+    "tracks": [
+        {
+            "trackId": {
+                "id": 1,
+                "generation": 1
+            },
+            "type": 0,
+            "name": "Leave the Light",
+            "colorARGB": 4287323382,
+            "audioChannelCount": 2,
+            "isRecordArmed": false,
+            "isInputMonitoring": false,
+            "comments": "",
+            "outputTargetTrackId": {
+                "id": 4294967295,
+                "generation": 0
+            },
+            "inputSourceIndex": 0,
+            "automationMode": 0,
+            "automationLanes": [],
+            "hasPlaylist": true,
+            "playlistRegions": [
+                {
+                    "regionId": {
+                        "id": 1,
+                        "generation": 1
+                    },
+                    "layer": 0,
+                    "region": {
+                        "type": 0,
+                        "sourceId": {
+                            "id": 1,
+                            "generation": 1
+                        },
+                        "positionSample": 0,
+                        "sourceStartSample": 0,
+                        "sourceLength": 6412184,
+                        "fadeInSamples": 0,
+                        "fadeOutSamples": 0,
+                        "gain": 1.0,
+                        "isMuted": false,
+                        "startPosition": {
+                            "bar": 0,
+                            "beat": 0,
+                            "tick": 0,
+                            "totalTicks": 0
+                        },
+                        "warpMode": 0,
+                        "playbackRatio": 1.0,
+                        "sourceBpm": 120.0
+                    }
+                }
+            ],
+            "hasSequencer": false,
+            "hasInstrument": false,
+            "inserts": []
+        },
+        {
+            "trackId": {
+                "id": 2,
+                "generation": 1
+            },
+            "type": 0,
+            "name": "Leave the Light (Super Extended)",
+            "colorARGB": 4291066698,
+            "audioChannelCount": 2,
+            "isRecordArmed": false,
+            "isInputMonitoring": false,
+            "comments": "",
+            "outputTargetTrackId": {
+                "id": 4294967295,
+                "generation": 0
+            },
+            "inputSourceIndex": 0,
+            "automationMode": 0,
+            "automationLanes": [],
+            "hasPlaylist": true,
+            "playlistRegions": [
+                {
+                    "regionId": {
+                        "id": 2,
+                        "generation": 1
+                    },
+                    "layer": 0,
+                    "region": {
+                        "type": 0,
+                        "sourceId": {
+                            "id": 2,
+                            "generation": 1
+                        },
+                        "positionSample": 0,
+                        "sourceStartSample": 0,
+                        "sourceLength": 14569918,
+                        "fadeInSamples": 0,
+                        "fadeOutSamples": 0,
+                        "gain": 1.0,
+                        "isMuted": false,
+                        "startPosition": {
+                            "bar": 0,
+                            "beat": 0,
+                            "tick": 0,
+                            "totalTicks": 0
+                        },
+                        "warpMode": 0,
+                        "playbackRatio": 1.0,
+                        "sourceBpm": 120.0
+                    }
+                }
+            ],
+            "hasSequencer": false,
+            "hasInstrument": false,
+            "inserts": []
+        }
+    ],
+    "markers": [],
+    "keySignatures": [],
+    "mixStats": {
+        "isAnalyzed": false,
+        "integratedLoudnessLUFS": 0.0,
+        "truePeakDBTP": 0.0,
+        "clippingDetected": false
+    },
+    "regionMetadata": [
+        {
+            "regionId": 4294967297,
+            "metadata": {
+                "name": "Leave the Light",
+                "comment": "",
+                "colorARGB": 4287323382,
+                "hasComment": false
+            }
+        },
+        {
+            "regionId": 4294967298,
+            "metadata": {
+                "name": "Leave the Light (Super Extended)",
+                "comment": "",
+                "colorARGB": 4291066698,
+                "hasComment": false
+            }
+        }
+    ]
+}
