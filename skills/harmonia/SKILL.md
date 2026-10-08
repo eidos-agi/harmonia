@@ -5,6 +5,8 @@ description: Drive Eidos Harmonia, the Mac DAW, through bin/harmonia and the MCP
 
 # Harmonia
 
+`VISION.md` is the job. Take the first open proof whose dependencies are closed. Run the proof before calling it closed.
+
 Call `scripts/harmonia` or the MCP tools from `node mcp/server.mjs`. Both read `api/commands.json`.
 
 A command with `engine: "missing"` exits 77. That means scene launch, clip slots, session record, locators, returns, or master gain are not in the engine yet. Do not route around the refusal with the window, and do not report the action as done.

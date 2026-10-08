@@ -1,5 +1,7 @@
 # Eidos Harmonia
 
+The work list is [VISION.md](VISION.md). An agent keeps going until the proofs in that file are closed.
+
 Harmonia is a Mac DAW. A set has tracks, clip slots, scenes, and an arrangement, in the shape of a Live set. Every change is a CLI command and an MCP tool. The window is a view of that same API. A control that exists only in the window is a bug.
 
 This is a private copy of [Stratawright](https://github.com/Goldwaterfung/Stratawright) (MIT). The `upstream` remote points there. A GitHub fork of a public repo cannot be made private, so this history was pushed into `eidos-agi/harmonia` instead of the fork network.

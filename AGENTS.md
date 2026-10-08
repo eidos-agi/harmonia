@@ -1,5 +1,7 @@
 # Harmonia
 
+`VISION.md` is the job. Keep going until every proof in it is closed. There is no session end. Take the first open proof whose dependencies are closed. Do not mark a proof closed without running it.
+
 Mac only. Do not add a Windows ship path.
 
 The product is the API. `api/commands.json` is the list of actions. `scripts/harmonia` and `mcp/server.mjs` both read that file. A new action lands in all three in the same change. A GUI control with no command is a bug.
